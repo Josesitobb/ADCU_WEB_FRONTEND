@@ -64,10 +64,12 @@ export default function MenuHamburguesa() {
     <nav>
       <ul>
         <li>
-          <a href="#" className="logo">
-            <img src="../favicon.ico" alt="Logo" />
-            <span className="nav-item">ADCU</span>
-          </a>
+          <Link className="logo" to={"/AdminHome"}>
+
+            <img src="../favicon.ico" className="logo" alt="Logo" />
+            <span className="nav-item logo" >ADCU</span>
+            </Link>
+      
         </li>
         {/* Usuarios */}
         <li>
