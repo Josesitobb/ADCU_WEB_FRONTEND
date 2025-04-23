@@ -65,11 +65,9 @@ export default function MenuHamburguesa() {
       <ul>
         <li>
           <Link className="logo" to={"/AdminHome"}>
-
             <img src="../favicon.ico" className="logo" alt="Logo" />
-            <span className="nav-item logo" >ADCU</span>
-            </Link>
-      
+            <span className="nav-item logo">ADCU</span>
+          </Link>
         </li>
         {/* Usuarios */}
         <li>
@@ -159,7 +157,7 @@ export default function MenuHamburguesa() {
         </li>
         <li className={menuColaboracion ? "sub-activa" : "sub"}>
           <Link to={"/ControlDeAceso"}>
-            <span className="submenu"> Control de Acceso</span>
+            <span className="submenu"> Edicion colaborativa</span>
           </Link>
         </li>
         <li className={menuColaboracion ? "sub-activa" : "sub"}>

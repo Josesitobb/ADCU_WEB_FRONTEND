@@ -21,6 +21,9 @@ import GestorDePermisosIndividuales from "./pages/View_Admin/GestionDePermisosIn
 import GestionDeVersionyComentarios from "./pages/View_Admin/GestionDeVersionyComentarios";
 import Documentos from "./pages/View_Admin/Documentos";
 
+// DocumentoColaborativo
+import EdicionDocumentosColaborativos from "./pages/View_Admin/EdicionDocumentosColaborativos";
+
 //    DAYANA
 
 
@@ -77,6 +80,7 @@ const App = () => {
         <Route path="/ControlDeAceso" element={<ControlDeAceso />} />
         <Route path="/PermisoIndividuales" element={<GestorDePermisosIndividuales />} />
         <Route path="/ControlDeCambios" element={<GestionDeVersionyComentarios />} />
+        <Route path="EdicionColaborativo" element={<EdicionDocumentosColaborativos />} />
         {/* Documentacion proyecto */}
         <Route path="/DocumentosProyectos" element={<Documentos />} />
 

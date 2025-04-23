@@ -122,3 +122,25 @@ table thead tr th {
   margin-bottom: 1px;
 }
 
+/* Pagina de edicion */
+
+.pdf-page {
+  background-color: #ffffff;
+  width: 794px;
+  height: 1123px;
+  margin-left: 300px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 9rem;
+  right: 105rem;
+  font-size: 0.85rem;
+  color: #999;
+
+  /* margin-top: 810px;
+  margin-left: 680px; */
+}
