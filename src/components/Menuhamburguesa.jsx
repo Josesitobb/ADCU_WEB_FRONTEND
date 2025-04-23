@@ -267,11 +267,11 @@ export default function MenuHamburguesa() {
             <span className="submenu">Políticas de Retención</span>
           </Link>
         </li>
-        <li className={menuRetencion ? "sub-activa" : "sub"}>
+        {/* <li className={menuRetencion ? "sub-activa" : "sub"}>
           <Link to={"/ArchivoAutomaticoseguncriterio"}>
             <span className="submenu">Autoarchivo</span>
           </Link>
-        </li>
+        </li> */}
         <li className={menuRetencion ? "sub-activa" : "sub"}>
           <Link to={"/Eliminacionseguradedocumentosobsoletos"}>
             <span className="submenu"> Eliminación Segura</span>
@@ -285,11 +285,11 @@ export default function MenuHamburguesa() {
           </a>
         </li>
 
-        <li className={menuReportes ? "sub-activa" : "sub"}>
+        {/* <li className={menuReportes ? "sub-activa" : "sub"}>
           <Link to={"/Generaciondereportesdeactividaddedocumentos"}>
             <span className="submenu"> Reportes de Actividad</span>
           </Link>
-        </li>
+        </li> */}
 
         <li className={menuReportes ? "sub-activa" : "sub"}>
           <Link to={"/Reportedeflujosdetrabajo"}>

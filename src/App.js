@@ -2,54 +2,61 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Index_Admin from "./pages/View_Admin/Index_Admin";
-import Usuarios from "./pages/View_Admin/Usuarios";
-import Pdf from "./pages/View_Admin/Pdf";
+import Usuarios from "./pages/View_Admin/Usuarios/Usuarios";
+import Pdf from "./components/Pdf";
 
 // JOSE
-import UsuariosDetalles from "./pages/View_Admin/UsuariosDetalles";
-import GestordeDocumentos from "./pages/View_Admin/GestordeDocumentos";
-import IntercambiodeDocumentos from "./pages/View_Admin/IntercambiodeDocumentos";
-import RecuperacióndeArchivos from "./pages/View_Admin/RecuperacióndeArchivos";
-import GestionDeGrupos from "./pages/View_Admin/GestionDeGrupos";
-import GestionDePermisosIndividual from "./pages/View_Admin/GestionDePermisosIndividual";
-import RegistroDeActividades from "./pages/View_Admin/RegistroDeActividades";
-import ConsultasyReportes from "./pages/View_Admin/ConsultasyReportes";
-import MonitoreoyAlertas from "./pages/View_Admin/MonitoreoyAlertas";
-import EncritamientoDeDocumentos from "./pages/View_Admin/EncritamientoDeDocumentos";
-import ControlDeAceso from "./pages/View_Admin/ControlDeAceso";
-import GestorDePermisosIndividuales from "./pages/View_Admin/GestionDePermisosIndividual";
-import GestionDeVersionyComentarios from "./pages/View_Admin/GestionDeVersionyComentarios";
-import Documentos from "./pages/View_Admin/Documentos";
+
+
+
+import UsuariosDetalles from "./pages/View_Admin/Usuarios/UsuariosDetalles";
+
+import GestordeDocumentos from "./pages/View_Admin/Gestion_Documental/GestordeDocumentos";
+import IntercambiodeDocumentos from "./pages/View_Admin/Gestion_Documental/IntercambiodeDocumentos";
+import RecuperacióndeArchivos from "./pages/View_Admin/Gestion_Documental/RecuperacióndeArchivos";
+
+
+
+
+import GestionDeGrupos from "./pages/View_Admin/Control_De_Seguridad/GestionDeGrupos";
+import GestionDePermisosIndividual from "./pages/View_Admin/Control_De_Seguridad/GestionDePermisosIndividual";
+import RegistroDeActividades from "./pages/View_Admin/Control_De_Seguridad/RegistroDeActividades";
+import ConsultasyReportes from "./pages/View_Admin/Control_De_Seguridad/ConsultasyReportes";
+import MonitoreoyAlertas from "./pages/View_Admin/Control_De_Seguridad/MonitoreoyAlertas";
+import EncritamientoDeDocumentos from "./pages/View_Admin/Control_De_Seguridad/EncritamientoDeDocumentos";
+import ControlDeAceso from "./pages/View_Admin/Colaboracion/ControlDeAceso";
+import GestorDePermisosIndividuales from "./pages/View_Admin/Control_De_Seguridad/GestionDePermisosIndividual";
+import GestionDeVersionyComentarios from "./pages/View_Admin/Colaboracion/GestionDeVersionyComentarios";
+import Documentos from "./pages/View_Admin/Documento_Proyecto/Documentos";
 
 // DocumentoColaborativo
-import EdicionDocumentosColaborativos from "./pages/View_Admin/EdicionDocumentosColaborativos";
+import EdicionDocumentosColaborativos from "./pages/View_Admin/Colaboracion/EdicionDocumentosColaborativos";
 
 //    DAYANA
+import Aprobacion from "./pages/View_Admin/Flujo_De_Trabajo/Aprobacion";
+import Seguimiento from "./pages/View_Admin//Flujo_De_Trabajo/Seguimiento";
 
 
-import Aprobacion from "./pages/View_Admin/Aprobacion";
-import Seguimiento from "./pages/View_Admin/Seguimiento";
-import FirmadeDocumento from "./pages/View_Admin/FirmadeDocumentos";
-import EnviodeDocumentos from "./pages/View_Admin/EnviodeDocuemntos";
-import ValidaciondelaFirmas from "./pages/View_Admin/ValidaciondelaFirma";
-import AccesodeDocmentos from "./pages/View_Admin/AccesodeDocuemntos";
-import ConsultaDeDocumentos from "./pages/View_Admin/ConsultaDeDocumentos";
-import RechazodeDocumentos from "./pages/View_Admin/RechazodeDocuemntos";
+import FirmadeDocumento from "./pages/View_Admin/Firma/FirmadeDocumentos";
+import EnviodeDocumentos from "./pages/View_Admin/Firma/EnviodeDocumentos";
+import ValidaciondelaFirmas from "./pages/View_Admin/Firma/ValidaciondelaFirma";
+
 
 
 // DIEGO
 
-import Copiasdeseguridadautomaticas from "./pages/View_Admin/Copiasdeseguridadautomaticas";
-import Accesoremotoadocumentos from "./pages/View_Admin/Accesoremotoadocumentos";
-import Sicronizacionentiemporeal from "./pages/View_Admin/Sinronizacionentiemporeal";
-import PoliticasretenciondeDocumentos from "./pages/View_Admin/PoliticasretenciondeDocumentos";
+import Copiasdeseguridadautomaticas from "./pages/View_Admin/Gestor_Cloud/Backups";
+import Accesoremotoadocumentos from "./pages/View_Admin/Gestor_Cloud/Accesoremotoadocumentos";
+import Sicronizacionentiemporeal from "./pages/View_Admin/Gestor_Cloud/Sincronizacion";
+import PoliticasretenciondeDocumentos from "./pages/View_Admin/Retencion/PoliticasretenciondeDocumentos";
 import ArchivoAutomaticoseguncriterio from "./pages/View_Admin/ArchivoAutomaticoseguncriterio";
-import Eliminacionseguradedocumentosobsoletos from "./pages/View_Admin/Eliminacionseguradedocumentosobsoletos";
-import Generaciondereportesdeactividaddedocumentos from "./pages/View_Admin/Generaciondereportesdeactividaddedocumentos";
-import Reportedeflujosdetrabajo from "./pages/View_Admin/Reportedeflujosdetrabajo";
-import Reportedefirmaelectronica from "./pages/View_Admin/Reportedefirmaelectronica";
-import Reportedearchivoyretenciondedocumentos from "./pages/View_Admin/Reportedearchivoyretenciondedocumentos";
-import Reportedeseguridaddecontroldeacccesos from "./pages/View_Admin/Reportedeseguridaddecontroldeacccesos";
+import Eliminacionseguradedocumentosobsoletos from "./pages/View_Admin/Retencion/Eliminacionseguradedocumentosobsoletos";
+
+
+import Reportedeflujosdetrabajo from "./pages/View_Admin/Reportes/Reportedeflujosdetrabajo";
+import Reportedefirmaelectronica from "./pages/View_Admin/Reportes/Reportedefirmaelectronica";
+import Reportedearchivoyretenciondedocumentos from "./pages/View_Admin/Reportes/Reportedearchivoyretenciondedocumentos";
+import Reportedeseguridaddecontroldeacccesos from "./pages/View_Admin/Reportes/Reportedeseguridaddecontroldeacccesos";
 
 
 const App = () => {
@@ -93,11 +100,7 @@ const App = () => {
         <Route path="/FirmaDeDocumento" element={<FirmadeDocumento />} />
         <Route path="/EnviodeDocumento" element={<EnviodeDocumentos />} />
         <Route path="/ValidaciondelaFirma" element={<ValidaciondelaFirmas />} />
-        <Route path="/AccesodeDocmentos" element={<AccesodeDocmentos />} />
-        <Route panth="/ConsultaDeDocumentos" element={<ConsultaDeDocumentos />} />
-        <Route path="/RechazoModificacion" element={<RechazodeDocumentos />} />
-
-        <Route path="/ConsultaDeDocumentos" element={<ConsultaDeDocumentos />} />
+      
 
         {/* ----------------------------------------------------------------------------- */}
         {/* DIEGO */}
@@ -110,7 +113,7 @@ const App = () => {
         <Route path="/ArchivoAutomaticoseguncriterio" element={<ArchivoAutomaticoseguncriterio />} />
         <Route path="/Eliminacionseguradedocumentosobsoletos" element={<Eliminacionseguradedocumentosobsoletos />} />
         {/* Reportes */}
-        <Route path="/Generaciondereportesdeactividaddedocumentos" element={<Generaciondereportesdeactividaddedocumentos />} />
+    
         <Route path="/Reportedeflujosdetrabajo" element={<Reportedeflujosdetrabajo />} />
         <Route path="/Reportedefirmaelectronica" element={<Reportedefirmaelectronica />} />
         <Route path="/Reportedeseguridaddecontroldeacccesos" element={<Reportedeseguridaddecontroldeacccesos />} />
