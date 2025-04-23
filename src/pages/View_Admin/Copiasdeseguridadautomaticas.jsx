@@ -3,14 +3,14 @@ import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Footer from '../../components/Footer';
-
+import "../../styles/styles.css";
 export default function Copiasdeseguridadautomaticas() {
   const [backups, setBackups] = useState([
-    { id: 1, fecha: '2025-04-08 14:32', estado: '✅ ', tipo: 'Automática', seleccionado: false },
-    { id: 2, fecha: '2025-04-07 14:30', estado: '✅ ', tipo: 'Automática', seleccionado: false },
-    { id: 3, fecha: '2025-04-06 12:00', estado: '❌ ', tipo: 'Manual', seleccionado: false },
+    { id: 1, fecha: '2025-04-08 14:32', estado: '✅ Activa', tipo: 'Automática', seleccionado: false },
+    { id: 2, fecha: '2025-04-07 14:30', estado: '✅ Activa', tipo: 'Automática', seleccionado: false },
+    { id: 3, fecha: '2025-04-06 12:00', estado: '❌ Inactiva', tipo: 'Manual', seleccionado: false },
   ]);
-
+  
   const toggleSeleccion = (id) => {
     setBackups((prev) =>
       prev.map((copia) =>
@@ -23,12 +23,11 @@ export default function Copiasdeseguridadautomaticas() {
     setBackups((prev) =>
       prev.map((copia) => {
         if (copia.id === id) {
-          const nuevoEstado = copia.estado === '✅ ' ? '❌ ' : '✅ ';
-          const nuevaFecha = nuevoEstado === '✅ ' ? new Date().toLocaleString() : copia.fecha;
+          const esActiva = copia.estado === '✅ Activa';
           return {
             ...copia,
-            estado: nuevoEstado,
-            fecha: nuevaFecha,
+            estado: esActiva ? '❌ Inactiva' : '✅ Activa',
+            fecha: !esActiva ? new Date().toLocaleString() : copia.fecha, // solo actualiza fecha si se activa
           };
         }
         return copia;
@@ -38,9 +37,9 @@ export default function Copiasdeseguridadautomaticas() {
   return (
     <div>
       <MenuHamburguesa />
-      <h1 className="text-center">Copias de seguridad automáticas</h1>
+      <h1 className="tituloPrincipal">Copias de seguridad automáticas</h1>
 
-      <Table striped bordered hover>
+      <Table className='tablaTodos'>
         <thead>
           <tr>
             <th>N° de contrato</th>
@@ -58,13 +57,15 @@ export default function Copiasdeseguridadautomaticas() {
               <td>{copia.estado}</td>
               <td>{copia.tipo}</td>
               <td>
-                <Button
-                  variant={copia.estado === '✅ Exitosa' ? 'danger' : 'success'}
-                  size="sm"
-                  onClick={() => cambiarEstado(copia.id)}
-                >
-                  {copia.estado === '✅ Exitosa' ? 'Desactivar' : 'Activar'}
-                </Button>
+              <Button
+              variant={copia.estado === '✅ Activa' ? 'danger' : 'success'}
+              size="sm"
+              onClick={() => cambiarEstado(copia.id)}
+>
+            {copia.estado === '✅ Activa' ? 'Desactivar' : 'Activar'}
+            </Button>
+
+
               </td>
             </tr>
           ))}
