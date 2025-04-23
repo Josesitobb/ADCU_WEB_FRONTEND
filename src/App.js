@@ -29,7 +29,6 @@ import EdicionDocumentosColaborativos from "./pages/View_Admin/EdicionDocumentos
 
 import Aprobacion from "./pages/View_Admin/Aprobacion";
 import Seguimiento from "./pages/View_Admin/Seguimiento";
-import Notificaciones from "./pages/View_Admin/Notificaciones";
 import FirmadeDocumento from "./pages/View_Admin/FirmadeDocumentos";
 import EnviodeDocumentos from "./pages/View_Admin/EnviodeDocuemntos";
 import ValidaciondelaFirmas from "./pages/View_Admin/ValidaciondelaFirma";
@@ -90,7 +89,6 @@ const App = () => {
         {/* Flujo se trabajo */}
         <Route path="/Aprobacion" element={<Aprobacion />} />
         <Route path="/Seguimiento" element={<Seguimiento />} />
-        <Route path="/Notificaciones" element={<Notificaciones />} />
         {/* Firma Electronica */}
         <Route path="/FirmaDeDocumento" element={<FirmadeDocumento />} />
         <Route path="/EnviodeDocumento" element={<EnviodeDocumentos />} />

@@ -187,11 +187,7 @@ export default function MenuHamburguesa() {
             <span className="submenu"> Seguimiento</span>
           </Link>
         </li>
-        <li className={menuFlujo ? "sub-activa" : "sub"}>
-          <Link to={"/Notificaciones"}>
-            <span className="submenu"> Notificaciones</span>
-          </Link>
-        </li>
+        
         <li className={menuFlujo ? "sub-activa" : "sub"}>
           <Link to={"/RechazoModificacion"}>
             <span className="submenu"> Rechazo o Modificacion</span>
@@ -219,7 +215,9 @@ export default function MenuHamburguesa() {
             <span className="submenu"> Validar firma</span>
           </Link>
         </li>
-        <li className={menuFirma ? "sub-activa" : "sub"}>
+        {/* BORRAR */}
+
+        {/* <li className={menuFirma ? "sub-activa" : "sub"}>
           <Link to={"/AccesodeDocmentos"}>
             <span className="submenu"> D Acceso de Documentos</span>
           </Link>
@@ -233,7 +231,8 @@ export default function MenuHamburguesa() {
           <Link to={"/RechazoModificacion"}>
             <span className="submenu">D Rechazo de Documentos </span>
           </Link>
-        </li>
+        </li> */}
+        {/* BORRAR */}
         {/* Alcenamineto en la nube */}
         <li>
           <a href="#" onClick={AparecermenuNube}>

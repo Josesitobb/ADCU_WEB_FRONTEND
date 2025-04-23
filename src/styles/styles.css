@@ -1,4 +1,17 @@
 /* BOTONES */
+
+.botonRojo {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #d11919;
+  height: 40px;
+  text-decoration: none;
+}
+
 .botonVerde {
   margin-left: 10px;
   border-radius: 8px;
