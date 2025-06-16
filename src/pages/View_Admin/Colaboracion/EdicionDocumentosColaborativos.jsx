@@ -7,7 +7,7 @@ export default function EdicionDocumentosColaborativos() {
   const [Click, SetClick] = useState(false);
   const CambiarClick = () => {
     alert("Se esta guardando espere un momento");
-    alert("Listo se ha guardado BUENA SO");
+    alert("Listo se ha guardado SI ESTA BIEN");
     SetClick(!Click);
   };
 
