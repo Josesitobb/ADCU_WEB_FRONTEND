@@ -12,7 +12,7 @@ export default function Formulario() {
     // Lógica de manejo de formulario aquí (validaciones, envío, etc.)
 
     // Redirigir a la página Index_Admin
-    navigate("/AdminHome"); // Cambia esta ruta según tu configuración
+    
   };
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const styles = {
     borderRadius: '50px',
     cursor: 'pointer',
     width: '200px',
-    marginLeft: '15%',
+    marginLeft: '5%',
     fontFamily: 'League Spartan, sans-serif',
     fontWeight: '500',
   },
