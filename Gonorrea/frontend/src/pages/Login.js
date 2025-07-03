@@ -3,16 +3,17 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import LogoBogota from "../images/Bogota_Logo.png";
-import Alerts from "../components/Alerts/Alerts";
+import { toast } from 'sonner';
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [alert,setAlert] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const loadingToast = toast.loading('Verificando credenciales');
 
     try {
       const res = await axios.post("http://localhost:3000/api/auth/signin", {
@@ -26,6 +27,11 @@ export default function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
+      toast.success(`Bienvenido ${user.name || user.role} `,{
+        id: loadingToast,
+        description:'Inicio de sesion exitoso'
+      })
+
       if (role.toLowerCase() === "admin") {
         console.log("Rol", role);
         console.log("Token", token);
@@ -37,8 +43,9 @@ export default function Login() {
       const mensajeServidor =
         err.response?.data?.message || "Error desconocido del servidor";
    
-      setErrorMsg(`❌ ${mensajeServidor}`);
+
       console.error("Error completo:", err);
+      toast.error(`Erro al inicia sesion`,{id: loadingToast,description:mensajeServidor})
     }
   };
 
@@ -58,7 +65,6 @@ export default function Login() {
           <h2 style={styles.title} className="custom-font">
             ¡Bienvenido de nuevo!
           </h2>
-          {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
           <Form style={styles.form} onSubmit={handleSubmit}>
             <Form.Group
               className="mb-3"

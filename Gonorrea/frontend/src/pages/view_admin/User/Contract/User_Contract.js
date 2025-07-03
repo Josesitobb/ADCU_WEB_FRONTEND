@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import Header from "../../../../components/Header/Header";
 import "./User_Contract.css";
+import { toast } from "sonner";
 
 // Api
 import API_URL from "../../../../services/api";
@@ -89,7 +90,7 @@ export default function User_Contract() {
   // Crear le usuario
   const crearUsuario = async () => {
     try {
-      await axios.post(`${API_URL}/Users`, form);
+      const res = await axios.post(`${API_URL}/Users`, form);
       setMostrarModal(false);
       setForm({
         name: "",
@@ -104,36 +105,43 @@ export default function User_Contract() {
         contractId: "",
       });
       obtenerUsuarios();
+      toast.success(`Usuario exitosamente creado`, {
+        description: res?.data?.message || "Usuario creado exitosamente",
+      });
     } catch (err) {
-      const mensajeServidor =
-        err.response?.data?.message || "Error desconocido del servidor";
-
-      console.log("Error al crear usuario");
-      setError(`❌ ${mensajeServidor}`);
+      toast.error(`Error al crear un usuario`, {
+        description: err.response?.data?.message || "Error desconocido",
+      });
     }
   };
   // ... tres puntos sirven para hacer una copia
 
   // Actualizar usuario
   const actualizarUsuario = async () => {
+    const messageUserPut = toast.loading("Espere un poquito");
     try {
       const datosActualizados = { ...form };
       if (!form.password) {
         delete datosActualizados.password;
       }
 
-      //   if(!form.contractId ){
-      //     delete datosActualizados.contractId;
-      //   }
-
-      await axios.put(`${API_URL}/Users/${idEditando}`, datosActualizados);
+      const res = await axios.put(
+        `${API_URL}/Users/${idEditando}`,
+        datosActualizados
+      );
       setMostrarModal(false);
       setModoEdicion(false);
       setIdEditando(null);
       obtenerUsuarios();
+      toast.success("Usuario editado exitosamente", {
+        id: messageUserPut,
+        description: res.data?.message || "Cambios guardados con éxito",
+      });
     } catch (err) {
-      console.log("Erro al actualizar el usuario");
-      setError("Erro al actualizar usuario", err);
+      toast.error("Error al editar un usuario", {
+        id: messageUserPut,
+        description: err.response?.data?.message || "Erro del servidor",
+      });
     }
   };
 
@@ -144,26 +152,26 @@ export default function User_Contract() {
     );
     if (!confirmar) return;
     try {
-      await axios.delete(`${API_URL}/Users/${id}`);
+      const res = await axios.delete(`${API_URL}/Users/${id}`);
       obtenerUsuarios();
+      toast.success('Usuario eliminado exitosamente',{description:res.data?.message} || 'Usuario eliminado')
     } catch (err) {
-      console.log("Error al eliminar los usuairos");
-      setError("Error al eliminar el usuario", err);
+      toast.error('No se puedo eliminar el usuairo',{description:err?.response?.data?.message || 'No se pudo eliminar el usuario'})
     }
   };
   // Abril modal para crear Uusario
   const abrirModalCrearUsuario = () => {
     setForm({
       name: "",
-        lastname: "",
-        idcard: "",
-        telephone: "",
-        email: "",
-        password: "",
-        role: "contratista",
-        post: "",
-        state: "Activo",
-        contractId: "",
+      lastname: "",
+      idcard: "",
+      telephone: "",
+      email: "",
+      password: "",
+      role: "contratista",
+      post: "",
+      state: "Activo",
+      contractId: "",
     });
     setModoEdicion(false);
     setIdEditando(null);
@@ -212,7 +220,7 @@ export default function User_Contract() {
               </div>
               <Button
                 variant="primary"
-                onClick={abrirModalCrearUsuario }
+                onClick={abrirModalCrearUsuario}
                 className="d-flex align-items-center"
               >
                 <i className="bi bi-plus-lg me-2"></i>

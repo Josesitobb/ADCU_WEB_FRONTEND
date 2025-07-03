@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import Header from "../../../../components/Header/Header";
 import "./User_Funcionary.css";
+import { toast } from "sonner";
 // Api
 import API_URL from "../../../../services/api";
 
@@ -49,11 +50,13 @@ export default function User_Funcionary() {
 
   // Obtener todos los usuario del api
   const obtenerUsuarios = async () => {
+    // const loading=  toast.loading('Cargando usuario')
     try {
       const res = await axios.get(`${API_URL}/Users`);
       setUsuariosF(res.data.data);
+      // toast.success('Usuario cargado exitosamente',{id:loading, description:'Usuarios funcionarios cargado exitosamente'})
     } catch (err) {
-      console.log("Erro al cargar lo usuarios");
+      // toast.error('Error al cargar los usuarios',{id:loading,description:'Error al cargar funcionarios'})
       setError("Erro al cargar los usuarios", err);
     } finally {
       setCargando(false);
@@ -72,8 +75,9 @@ export default function User_Funcionary() {
 
   // Crear le usuario
   const crearUsuario = async () => {
+    const loadingUser = toast.loading('Espere un momentos')
     try {
-      await axios.post(`${API_URL}/Users`, form);
+      const res = await axios.post(`${API_URL}/Users`, form);
       setMostrarModal(false);
       setForm({
         name: "",
@@ -88,16 +92,16 @@ export default function User_Funcionary() {
         contractId: "",
       });
       obtenerUsuarios();
+      toast.success('Usuario creado exitosamente',{id:loadingUser,description:res?.data?.message || 'Usuario funcionario creado exitosamente'});
     } catch (err) {
-      const messageServer = err.response?.data?.message || 'Error desconocido del servidor';
-      console.log("Error al crear usuario",err);
-      setError(`❌ ${messageServer}`);
+      toast.error('Error al crear usuario',{id:loadingUser,description:err.response?.data?.message || 'Erro en el servidor'});
     }
   };
   // ... tres puntos sirven para hacer una copia
 
   // Actualizar usuario
   const actualizarUsuario = async () => {
+    const loadingUserUpdate = toast.loading('Cargando....')
     try {
       const datosActualizados = { ...form };
       if (!form.password) {
@@ -108,29 +112,32 @@ export default function User_Funcionary() {
       //     delete datosActualizados.contractId;
       //   }
 
-      await axios.put(`${API_URL}/Users/${idEditando}`, datosActualizados);
+     const res = await axios.put(`${API_URL}/Users/${idEditando}`, datosActualizados);
       setMostrarModal(false);
       setModoEdicion(false);
       setIdEditando(null);
       obtenerUsuarios();
+        toast.success('Usuario actualizado exitosamente',{id:loadingUserUpdate,description:res?.data?.message || 'Usuario funcionario actualizando exitosamente '});
     } catch (err) {
-      console.log("Erro al actualizar el usuario");
-      setError("Erro al actualizar usuario", err);
+      toast.error('Error al actualizar el usuario',{id:loadingUserUpdate, description:err.response?.data?.message || 'Error del servidor'});
     }
   };
 
   // Borrar usuario
   const eliminarUsuario = async (id) => {
+
     const confirmar = window.confirm(
       "¿Seguro que quieres eliminar este Usuario contratista"
     );
     if (!confirmar) return;
+
+    const loadingUserDeletep = toast.loading('Cargando...')
     try {
-      await axios.delete(`${API_URL}/Users/${id}`);
+     const res = await axios.delete(`${API_URL}/Users/${id}`);
       obtenerUsuarios();
+      toast.success('Usuario eliminado',{id:loadingUserDeletep, description:res?.data?.message});
     } catch (err) {
-      console.log("Error al eliminar los usuairos");
-      setError("Error al eliminar el usuario", err);
+      toast.error('Error al eliminar el usuario',{id:loadingUserDeletep,description:err?.response?.data?.message || 'Erro en el servidor'})
     }
   };
 

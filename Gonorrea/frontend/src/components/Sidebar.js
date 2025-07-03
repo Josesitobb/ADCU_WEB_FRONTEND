@@ -18,6 +18,8 @@ import {
   FaChevronUp,
 } from "react-icons/fa";
 import "./Sidebar.css";
+
+import { Cpu, Power } from 'react-bootstrap-icons';
 // import logo from '../assets/logo.png'; // 🧠 Asegúrate que esta ruta sea correcta
 
 export default function Sidebar() {
@@ -37,7 +39,7 @@ export default function Sidebar() {
   return (
     <>
       <div className="hamburger-icon" onClick={toggleMenu}>
-        <FaBars />
+        <Cpu size={20} className="navbar-icon" style={{marginBottom:"25px", marginLeft:"4px"}} />
       </div>
 
       <div
