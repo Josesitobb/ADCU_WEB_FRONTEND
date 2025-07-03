@@ -1,0 +1,122 @@
+/* Fondo degradado animado tipo noche */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
+  color: #fff;
+  min-height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Partículas animadas */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#00fff7 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.08;
+  z-index: 0;
+  animation: particles 60s linear infinite;
+  pointer-events: none;
+}
+
+/* Fondo animado */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Movimiento partículas */
+@keyframes particles {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* Contenedor general */
+.container {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 4rem;
+}
+
+/* Tarjetas */
+.card {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border-radius: 14px;
+}
+
+/* Títulos llamativos */
+h1, h2 {
+  font-weight: bold;
+  text-shadow: 0 0 8px #00f0ff, 0 0 12px #00f0ff;
+}
+
+/* Tablas */
+.table {
+  color: #fff;
+}
+.table thead {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Botones */
+.btn-primary {
+  background-color: #00f0ff;
+  border-color: #00f0ff;
+  color: #000;
+}
+.btn-primary:hover {
+  background-color: #00bcd4;
+  border-color: #00bcd4;
+  color: #fff;
+}
+.btn-danger {
+  background-color: #ff4e4e;
+  border-color: #ff4e4e;
+}
+
+/* Input */
+input.form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid #00f0ff;
+}
+
+/* Placeholder color */
+::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Botón flotante arriba */
+#boton-arriba {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: #00f0ff;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 10px #00f0ff;
+  cursor: pointer;
+}
+#boton-arriba:hover {
+  background-color: #00cce0;
+}

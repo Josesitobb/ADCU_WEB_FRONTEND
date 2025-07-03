@@ -1,0 +1,159 @@
+/* BOTONES */
+
+.botonRojo {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #d11919;
+  height: 40px;
+  text-decoration: none;
+}
+
+.botonVerde {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #2ecc71;
+  height: 40px;
+  text-decoration: none;
+}
+
+.botonVerde:hover {
+  background-color: #27ae60;
+}
+
+.botonVerde:active {
+  background-color: #27ae60;
+}
+
+.botonAzul {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #3498db;
+  height: 40px;
+}
+
+.botonAzul:hover {
+  background-color: #256b9be3;
+}
+
+/* TABLA */
+.encabezadoTabla {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border-collapse: collapse;
+  height: 70px;
+}
+
+.tablaTodos {
+  width: 80%;
+  margin: 0 auto; /* Centra la tabla horizontalmente */
+  table-layout: auto;
+}
+
+.FinalTabla {
+  border-bottom: 1px solid #ccc;
+}
+
+.tablaTodos th,
+.tablaTodos td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+/* TITULOS */
+
+.tituloPrincipal {
+  padding-bottom: 6%;
+  padding-top: 2%;
+  text-align: center;
+}
+.subtitulos {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: #2c3e50;
+}
+
+table thead tr th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  height: 20%;
+  font-size: 22px;
+  color: #363636;
+}
+
+/* LINEA */
+
+.lineaAccion {
+  border: none;
+  border-top: 1px solid #bdc3c7;
+  width: 80%;
+  margin: 8px 0;
+}
+
+/* INPUTS */
+.input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  width: auto;
+  height: 40px;
+}
+
+/* checkbox */
+.checkbox {
+  transform: scale(1.4);
+  margin-top: 10px;
+  margin-left: 75px;
+}
+
+/* Listas */
+
+.Listas {
+  border: 1px solid #ccc;
+  height: 50px;
+  border-radius: 5px;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  margin-bottom: 1px;
+}
+
+/* Pagina de edicion */
+
+.pdf-page {
+  background-color: #ffffff;
+  width: 794px;
+  height: 1123px;
+  margin-left: 300px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 9rem;
+  right: 105rem;
+  font-size: 0.85rem;
+  color: #999;
+
+  /* margin-top: 810px;
+  margin-left: 680px; */
+}
