@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Importaciones de páginas existentes
 import Home from "./pages/Home";
 import Index_Admin from "./pages/View_Admin/Index_Admin";
 import Usuarios from "./pages/View_Admin/Usuarios/Usuarios";
@@ -34,71 +36,74 @@ import Reportedeflujosdetrabajo from "./pages/View_Admin/Reportes/Reportedeflujo
 import Reportedefirmaelectronica from "./pages/View_Admin/Reportes/Reportedefirmaelectronica";
 import Reportedearchivoyretenciondedocumentos from "./pages/View_Admin/Reportes/Reportedearchivoyretenciondedocumentos";
 import Reportedeseguridaddecontroldeacccesos from "./pages/View_Admin/Reportes/Reportedeseguridaddecontroldeacccesos";
-import ReportsPage from "./pages/ReportsPage"; // Nuevo módulo de reportes
-import './styles/ReportModule.css'; // Estilos del módulo de reportes
+
+// ✅ Nuevo módulo de reportes comparativos
+import ReportModule from './pages/View_Admin/ReportModule';
+
+import './styles/ReportModule.css';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rutas existentes */}
+        {/* Página principal */}
         <Route index path="/" element={<Home />} />
         <Route path="/AdminHome" element={<Index_Admin />} />
         <Route path="/AdminPdf" element={<Pdf />} />
-        
+
         {/* Usuarios */}
         <Route path="/AdminUsuarios" element={<Usuarios />} />
         <Route path="/AdminUsuarioDetalles" element={<UsuariosDetalles />} />
-        
-        {/* Gestion documental */}
+
+        {/* Gestión documental */}
         <Route path="/GestorDeDocumentos" element={<GestordeDocumentos />} />
         <Route path="/RecuperacionDeArchivos" element={<RecuperacióndeArchivos />} />
         <Route path="/IntercambiodeDocumentos" element={<IntercambiodeDocumentos />} />
-        
-        {/* Control y acceso y seguridad */}
+
+        {/* Seguridad y control de acceso */}
         <Route path="/GestionDeGrupos" element={<GestionDeGrupos />} />
         <Route path="/GestionIndividual" element={<GestionDePermisosIndividual />} />
         <Route path="/RegistroDeActivdades" element={<RegistroDeActividades />} />
         <Route path="/Consultas" element={<ConsultasyReportes />} />
         <Route path="/Monitoreo" element={<MonitoreoyAlertas />} />
         <Route path="/Encritamiento" element={<EncritamientoDeDocumentos />} />
-        
-        {/* Colaboracion */}
+
+        {/* Colaboración */}
         <Route path="/ControlDeAceso" element={<ControlDeAceso />} />
         <Route path="/PermisoIndividuales" element={<GestorDePermisosIndividuales />} />
         <Route path="/ControlDeCambios" element={<GestionDeVersionyComentarios />} />
         <Route path="/EdicionColaborativo" element={<EdicionDocumentosColaborativos />} />
-        
-        {/* Documentacion proyecto */}
+
+        {/* Documentación de proyecto */}
         <Route path="/DocumentosProyectos" element={<Documentos />} />
 
         {/* Flujo de trabajo */}
         <Route path="/Aprobacion" element={<Aprobacion />} />
         <Route path="/Seguimiento" element={<Seguimiento />} />
-        
-        {/* Firma Electronica */}
+
+        {/* Firma electrónica */}
         <Route path="/FirmaDeDocumento" element={<FirmadeDocumento />} />
         <Route path="/EnviodeDocumento" element={<EnviodeDocumentos />} />
         <Route path="/ValidaciondelaFirma" element={<ValidaciondelaFirmas />} />
-      
+
         {/* Almacenamiento en la nube */}
         <Route path="/Backups" element={<Copiasdeseguridadautomaticas />} />
         <Route path="/DocumentosRemotos" element={<Accesoremotoadocumentos />} />
         <Route path="/Sincronizacion" element={<Sicronizacionentiemporeal />} />
-        
-        {/* Archivo y Retencion */}
+
+        {/* Archivo y retención */}
         <Route path="/PoliticasretenciondeDocumentos" element={<PoliticasretenciondeDocumentos />} />
         <Route path="/ArchivoAutomaticoseguncriterio" element={<ArchivoAutomaticoseguncriterio />} />
         <Route path="/Eliminacionseguradedocumentosobsoletos" element={<Eliminacionseguradedocumentosobsoletos />} />
-        
+
         {/* Reportes existentes */}
         <Route path="/Reportedeflujosdetrabajo" element={<Reportedeflujosdetrabajo />} />
         <Route path="/Reportedefirmaelectronica" element={<Reportedefirmaelectronica />} />
         <Route path="/Reportedeseguridaddecontroldeacccesos" element={<Reportedeseguridaddecontroldeacccesos />} />
         <Route path="/Reportedearchivoyretenciondedocumentos" element={<Reportedearchivoyretenciondedocumentos />} />
 
-        {/* Nuevo módulo de reportes */}
-        <Route path="/reports" element={<ReportsPage />} />
+        {/* ✅ Nuevo módulo de reportes comparativos */}
+        <Route path="/admin/reportes" element={<ReportModule />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,29 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL + '/reports'; // Asegúrate de que termina en /api/v1/reports
+const API_URL = 'http://localhost:5000/api/reports';  // Ajusta la URL si tu backend usa otro puerto
 
-export const fetchReports = async () => {
-  const response = await axios.get(`${API_URL}/history`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  });
-  return response.data;
-};
-
-export const createReport = async () => {
-  const response = await axios.get(`${API_URL}/generate`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  });
-  return response.data;
-};
-
-export const deleteReport = async (id) => {
-  await axios.delete(`${API_URL}/${id}`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  });
-};
+export const getReports = () => axios.get(API_URL);
+export const downloadReport = (id) => axios.get(`${API_URL}/${id}/download`, { responseType: 'blob' });
+export const downloadComparedReport = () => axios.post(`${API_URL}/compare`, {}, { responseType: 'blob' });
