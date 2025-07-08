@@ -10,28 +10,24 @@ export default function MenuHamburguesa() {
   };
 
   //Gestion documental
-
   const [menuGestionDocumental, setGestionDocumental] = useState(false);
   const AparecermenuGestionDocumental = () => {
     setGestionDocumental(!menuGestionDocumental);
   };
 
   // Control de seguridad
-
   const [menuSeguridad, setSeguridad] = useState(false);
   const AparecermenuSeguridad = () => {
     setSeguridad(!menuSeguridad);
   };
 
   // Colaboracion
-
   const [menuColaboracion, setColaboracion] = useState(false);
   const AparecermenuColaboracion = () => {
     setColaboracion(!menuColaboracion);
   };
 
   // Flujo de trabajo
-
   const [menuFlujo, setFlujo] = useState(false);
   const AparecermenuFlujo = () => {
     setFlujo(!menuFlujo);
@@ -48,7 +44,7 @@ export default function MenuHamburguesa() {
     setNube(!menuNube);
   };
 
-  //  Archivo en retencion
+  // Archivo en retencion
   const [menuRetencion, setRetencion] = useState(false);
   const AparecermenuRetencion = () => {
     setRetencion(!menuRetencion);
@@ -215,24 +211,6 @@ export default function MenuHamburguesa() {
             <span className="submenu"> Validar firma</span>
           </Link>
         </li>
-        {/* BORRAR */}
-
-        {/* <li className={menuFirma ? "sub-activa" : "sub"}>
-          <Link to={"/AccesodeDocmentos"}>
-            <span className="submenu"> D Acceso de Documentos</span>
-          </Link>
-        </li>
-        <li className={menuFirma ? "sub-activa" : "sub"}>
-          <Link to={"/ConsultaDeDocumentos"}>
-            <span className="submenu">D Consulta de Documentos</span>
-          </Link>
-        </li>
-        <li className={menuFirma ? "sub-activa" : "sub"}>
-          <Link to={"/RechazoModificacion"}>
-            <span className="submenu">D Rechazo de Documentos </span>
-          </Link>
-        </li> */}
-        {/* BORRAR */}
         {/* Alcenamineto en la nube */}
         <li>
           <a href="#" onClick={AparecermenuNube}>
@@ -267,53 +245,37 @@ export default function MenuHamburguesa() {
             <span className="submenu">Políticas de Retención</span>
           </Link>
         </li>
-        {/* <li className={menuRetencion ? "sub-activa" : "sub"}>
-          <Link to={"/ArchivoAutomaticoseguncriterio"}>
-            <span className="submenu">Autoarchivo</span>
-          </Link>
-        </li> */}
         <li className={menuRetencion ? "sub-activa" : "sub"}>
           <Link to={"/Eliminacionseguradedocumentosobsoletos"}>
             <span className="submenu"> Eliminación Segura</span>
           </Link>
         </li>
-        {/* Reportes */}
+        {/* Reportes - Only the new items you wanted to add */}
         <li>
           <a href="#" onClick={AparecermenuReportes}>
-            <i className="fas   fa-note-sticky"></i>
+            <i className="fas fa-note-sticky"></i>
             <span className="nav-item">Reportes</span>
           </a>
         </li>
 
-        {/* <li className={menuReportes ? "sub-activa" : "sub"}>
-          <Link to={"/Generaciondereportesdeactividaddedocumentos"}>
-            <span className="submenu"> Reportes de Actividad</span>
-          </Link>
-        </li> */}
-
         <li className={menuReportes ? "sub-activa" : "sub"}>
-          <Link to={"/Reportedeflujosdetrabajo"}>
-            <span className="submenu"> Reporte de flujos de trabajo</span>
+          <Link to={"/ReporteComparativo"}>
+            <span className="submenu">📊 Reporte Comparativo</span>
           </Link>
         </li>
 
         <li className={menuReportes ? "sub-activa" : "sub"}>
-          <Link to={"/Reportedefirmaelectronica"}>
-            <span className="submenu"> Reporte de firma electronica</span>
+          <Link to={"/HistorialReportes"}>
+            <span className="submenu">📁 Historial de Reportes</span>
           </Link>
         </li>
 
         <li className={menuReportes ? "sub-activa" : "sub"}>
-          <Link to={"/Reportedeseguridaddecontroldeacccesos"}>
-            <span className="submenu"> Reporte de Accesos</span>
+          <Link to={"/DescargarExcel"}>
+            <span className="submenu">⬇️ Descargar Excel Global</span>
           </Link>
         </li>
-
-        <li className={menuReportes ? "sub-activa" : "sub"}>
-          <Link to={"/Reportedearchivoyretenciondedocumentos"}>
-            <span className="submenu"> Reporte Retención Documental</span>
-          </Link>
-        </li>
+        
         {/* Documentacion proyecto */}
         <li>
           <Link to={"/DocumentosProyectos"}>
